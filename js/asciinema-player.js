@@ -359,6 +359,7 @@
       if (loop) {
         start();
       } else {
+        setTime(controller.time());
         clearInterval(timeIntervalId);
         onFinish();
       }
