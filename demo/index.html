@@ -1,0 +1,30 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/dist/css/asciinema-player.css" />
+  <link rel="stylesheet" type="text/css" href="/dist/css/themes/tango.css" />
+  <link rel="stylesheet" type="text/css" href="/dist/css/themes/solarized-dark.css" />
+  <link rel="stylesheet" type="text/css" href="/dist/css/themes/solarized-light.css" />
+
+  <script src="http://fb.me/react-0.10.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.10.0.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script src="/src/scripts/vendor/screenfull.js"></script>
+</head>
+<body>
+<div id="player-container"></div>
+
+<script src="/dist/js/asciinema-player.min.js"></script>
+
+<script>
+  var source = new asciinema.HttpArraySource("/demo/7443-stdout.json", 1);
+  var snapshot = [[["$ # Wow! it must have some special characters to do that.                       ",{}]],[["$ cat -A file                                                                   ",{}]],[["Printing with ^[[1m^[[5m^[[31m^[[4mstyle!^[[m^O$                                ",{}]],[["$ # Hm, well that's not very explanatory...                                     ",{}]],[["$ teseq --color file                                                            ",{}]],[["|",{}],["Printing with ",{"fg":6,"inverse":true}],["|                                                                ",{}]],[[": Esc [ 1 m",{"fg":3}],["                                                                     ",{}]],[["\u0026 SGR: SELECT GRAPHIC RENDITION",{"fg":5}],["                                                 ",{}]],[["\" Set bold text.",{"fg":2}],["                                                                ",{}]],[[": Esc [ 5 m",{"fg":3}],["                                                                     ",{}]],[["\u0026 SGR: SELECT GRAPHIC RENDITION",{"fg":5}],["                                                 ",{}]],[["\" Set slowly blinking text.",{"fg":2}],["                                                     ",{}]],[[": Esc [ 31 m",{"fg":3}],["                                                                    ",{}]],[["\u0026 SGR: SELECT GRAPHIC RENDITION",{"fg":5}],["                                                 ",{}]],[["\" Set foreground color red.",{"fg":2}],["                                                     ",{}]],[[": Esc [ 4 m",{"fg":3}],["                                                                     ",{}]],[["\u0026 SGR: SELECT GRAPHIC RENDITION",{"fg":5}],["                                                 ",{}]],[["\" Set underlined text.",{"fg":2}],["                                                          ",{}]],[["|",{}],["style!",{"fg":6,"inverse":true}],["|                                                                        ",{}]],[[": Esc [ m",{"fg":3}],["                                                                       ",{}]],[["\u0026 SGR: SELECT GRAPHIC RENDITION",{"fg":5}],["                                                 ",{}]],[["\" Clear graphic rendition to defaults.",{"fg":2}],["                                          ",{}]],[[". SI/^O LF/^J",{"fg":1}],["                                                                   ",{}]],[["$ # Oh, cool, now I know how it does it!",{}],[" ",{"inverse":true}],["                                       ",{}]]];
+  var movie = new asciinema.Movie(80, 24, source, snapshot, 52);
+
+  React.renderComponent(
+    asciinema.Player({ autoPlay: false, movie: movie }),
+    document.getElementById('player-container')
+  );
+</script>
+
+</body>
+</html>
